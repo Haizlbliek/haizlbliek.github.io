@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ page.title }} | FWUtils</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="{{ '/assets/css/docs.css' | relative_url }}">
+	</head>
+	<body>
+		{% include sidebar.html %}
+		<main>
+			{{ content }}
+		</main>
+
+		<div id="lightbox" class="lightbox" onclick="this.style.display='none'">
+			<img id="lightbox-img" src="" alt="Popup View">
+		</div>
+
+		<script>
+		function openLightbox(src) {
+			const lb = document.getElementById('lightbox');
+			const lbImg = document.getElementById('lightbox-img');
+			lbImg.src = src;
+			lb.style.display = 'flex';
+		}
+		document.addEventListener('keydown', e => {
+			if (e.key === "Escape") document.getElementById('lightbox').style.display = 'none';
+		});
+		</script>
+	</body>
+</html>

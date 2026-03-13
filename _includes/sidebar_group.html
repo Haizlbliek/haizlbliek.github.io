@@ -1,0 +1,20 @@
+<li>
+	<span class="nav-label">{{ include.name }}</span>
+	<ul class="dropdown">
+		{% assign items = site.pages | where_exp: "item", "item.path contains include.path" %}
+		
+		{% capture sort_string %}
+			{% for item in items %}
+				{{ item.order | default: item.title | append: "  " }}|{{ forloop.index0 }}{% unless forloop.last %}::{% endunless %}
+			{% endfor %}
+		{% endcapture %}
+
+		{% assign sorted_array = sort_string | split: "::" | sort %}
+
+		{% for entry in sorted_array %}
+			{% assign index = entry | split: "|" | last | plus: 0 %}
+			{% assign obj = items[index] %}
+			{% include sidebar_item.html url=obj.url title=obj.title icon=obj.icon %}
+		{% endfor %}
+	</ul>
+</li>

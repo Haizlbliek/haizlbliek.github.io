@@ -1,0 +1,8 @@
+title: FWUtils Documentation
+baseurl: ""
+url: "https://haizlbliek.github.io"
+markdown: kramdown
+highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: compressed

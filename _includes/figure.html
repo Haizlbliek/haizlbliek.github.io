@@ -1,0 +1,9 @@
+<figure class="wiki-figure">
+	<div class="zoom-container" onclick="openLightbox('{{ include.image | relative_url }}')">
+		<img src="{{ include.image | relative_url }}" alt="{{ include.caption }}">
+	</div>
+
+	{% if include.caption %}
+		<figcaption>{{ include.caption }}</figcaption>
+	{% endif %}
+</figure>

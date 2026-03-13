@@ -1,0 +1,11 @@
+{% assign is_active = "" %}
+{% if include.url == page.url %}
+	{% assign is_active = "active" %}
+{% endif %}
+
+<li class="{{ is_active }}">
+	<a href="{{ include.url | relative_url }}">
+		<img src="{{ include.icon }}" />
+		{{ include.title }}
+	</a>
+</li>

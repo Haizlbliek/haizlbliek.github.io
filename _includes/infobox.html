@@ -1,0 +1,24 @@
+<aside class="infobox">
+	<h2><img src="{{ include.icon }}">{{ include.name }}</h2>
+
+	<div class="infobox-img-container" onclick="openLightbox('{{ include.image | relative_url }}')" style="cursor: zoom-in; overflow: hidden;">
+		<img src="{{ include.image | relative_url }}" alt="{{ include.name }}">
+	</div>
+	<!-- TODO -->
+	<!-- <div class="infobox-img-container" onclick="openLightbox('{{ include.dev_image | relative_url }}')" style="cursor: zoom-in; overflow: hidden;">
+		<img src="{{ include.dev_image | relative_url }}" alt="Dev Tools {{ include.name }}">
+	</div> -->
+
+	<table>
+		{% for pair in include %}
+			{% if pair[0] == "name" or pair[0] == "image" or pair[0] == "dev_image" or pair[0] == "icon" %}
+				{% continue %}
+			{% endif %}
+
+			<tr>
+				<th style="text-transform: capitalize;">{{ pair[0] }}</th>
+				<td>{{ pair[1] }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</aside>

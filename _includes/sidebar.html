@@ -1,0 +1,25 @@
+<nav id="sidebar">
+	<h3>FWUtils Docs</h3>
+	<ul>
+		{% include sidebar_item.html url="/fwutils/" title="Home" %}
+		{% include sidebar_item.html url="/fwutils/installation.html" title="Installation" %}
+
+		{% include sidebar_group.html path='fwutils/mechanics' name="Mechanics" %}
+		{% include sidebar_group.html path='fwutils/objects' name="Objects" %}
+		{% include sidebar_group.html path='fwutils/effects' name="Effects" %}
+	</ul>
+</nav>
+
+<script>
+	const sidebar = document.getElementById('sidebar');
+	const scrollPos = localStorage.getItem('sidebar-scroll');
+	if (scrollPos) {
+		sidebar.scrollTop = scrollPos;
+	}
+
+	document.querySelector('#sidebar li.active')?.scrollIntoView({ block: 'nearest' });
+
+	window.addEventListener('beforeunload', () => {
+		localStorage.setItem('sidebar-scroll', sidebar.scrollTop);
+	});
+</script>
