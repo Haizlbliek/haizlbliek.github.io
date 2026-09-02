@@ -6,4 +6,6 @@ infobox_object: Cattail
 icon: /assets/img/icon-cattail.png
 ---
 
+{% include todo.html %}
+
 {% include figure.html image="/assets/img/cattail-exploded.png" caption="The explosion of a thrown cattail" %}

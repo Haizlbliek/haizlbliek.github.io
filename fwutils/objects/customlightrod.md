@@ -4,3 +4,5 @@ title: Custom Light Rod
 infobox_image: /assets/img/customlightrod.png
 infobox_object: CustomLightRod
 ---
+
+{% include todo.html %}
